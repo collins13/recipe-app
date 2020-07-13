@@ -13,14 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 Route::get('/base', function () {
     return view('base');
 });
-
+Auth::routes(['register' => false]);
 Route::get('categories', 'RecipeController@categories')->name('categories');
 Route::post('add_category', 'RecipeController@add_category')->name('add_category');
 Route::get('edit_cat', 'RecipeController@edit_cat')->name('edit_cat');
@@ -41,3 +41,16 @@ Route::get('/', 'PagesController@menu')->name('menu');
 Route::get('/index', 'PagesController@index')->name('index');
 Route::get('/get_recipes/{id}', 'PagesController@get_recipes')->name('get_recipes');
 Route::get('/single_recipe/{id}', 'PagesController@single_recipe')->name('single_recipe');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles','RoleController');
+    Route::resource('users','UserController');
+});

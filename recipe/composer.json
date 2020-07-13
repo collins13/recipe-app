@@ -14,9 +14,9 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "nesbot/carbon": "^2.32",
-        "spatie/laravel-permission": "^3.11",
-        "unisharp/laravel-ckeditor": "^4.7"
+        "laravel/ui": "^2.0",
+        "nesbot/carbon": "^2.33",
+        "spatie/laravel-permission": "^3.11"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
